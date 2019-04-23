@@ -7,7 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
 
-class SendActivationCode
+class SendActivationCode implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -27,6 +27,6 @@ class SendActivationCode
      */
     public function handle(UserRegistered $event)
     {
-        Log::info('activation', [ 'user' => $event->user]);
+        Log::info('Bye World!' . $event->user->name);
     }
 }

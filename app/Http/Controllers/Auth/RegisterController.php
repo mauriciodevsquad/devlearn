@@ -73,6 +73,8 @@ class RegisterController extends Controller
         event(new UserRegistered($user));
 
 
+
         return $user;
+
     }
 }

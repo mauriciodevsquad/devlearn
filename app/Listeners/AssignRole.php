@@ -7,7 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
 
-class AssignRole
+class AssignRole implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -27,6 +27,8 @@ class AssignRole
      */
     public function handle(UserRegistered $event)
     {
-        Log::info('role', [ 'user' => $event->user]);
+        Log::info('Hello World!' . $event->user->name);
+
+        sleep(10);
     }
 }
