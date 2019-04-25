@@ -20,7 +20,9 @@
                         <div>
                             <div class="row mb-3">
                                 <div class="col-4">
+                                    <a href="/videos/{{ $video->id }}">
                                     <img style="width: 100%;" src="img/thumb.png">
+                                    </a>
                                 </div>
                                 <div class="col-8">
                                     <h5>
