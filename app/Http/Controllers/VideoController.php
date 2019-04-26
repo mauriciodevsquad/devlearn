@@ -14,7 +14,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Video::query()->orderBy('created_at')->paginate(10)->appends('filter','abc');
+        $videos = Video::query()->orderBy('created_at')->paginate(10);
 
         return view('/videos', [
             'videos' => $videos
@@ -35,7 +35,7 @@ class VideoController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'title'       => 'required',
+            'name'       => 'required',
             'url'         => 'required',
             'description' => 'required',
         ]);

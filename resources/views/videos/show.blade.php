@@ -6,13 +6,13 @@
         <div class="row">
 
             <div class="col-12 text-center mt-3 mb-5">
-                <h1>{{ $video->title }}</h1>
+                <h1>{{ $video->name }}</h1>
             </div>
         </div>
 
         <div class="row justify-content-center mb-4">
-            <div class="col-md-8">
-                <img style="width: 100%;" src="/img/thumb.png">
+            <div class="col-md-10">
+                <iframe width="100%" height="500px;" src="https://www.youtube.com/embed/EU7PRmCpx-0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 

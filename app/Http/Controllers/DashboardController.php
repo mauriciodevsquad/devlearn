@@ -15,14 +15,14 @@ class DashboardController extends Controller
 
     public function index()
     {
+        $query = Video::query()->orderBy("name");
+        $term = request()->input('term');
 
-        if (request()->input('response') !== null) {
-            $videos = Video::query()->where('title', request()->input('response'))
-                ->paginate(10)->appends('title', request()->input('response'));
-        } else {
-            $videos = Video::orderBy('title')->paginate(10);
+        if ($term) {
+            $query
+                ->whereRaw("lower(name) like ?", [strtolower("%$term%")]);
         }
 
-        return view('dashboard')->with('videos', $videos);
+        return view('dashboard')->with('videos', $query->paginate(10)->appends("term", $term));
     }
 }

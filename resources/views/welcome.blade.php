@@ -80,12 +80,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
                 <div class="links">
-                    <a href="/videos">Videos</a>
+                    <a style="font-size: 25px;" href="/videos">Videos</a>
                 </div>
             </div>
         </div>

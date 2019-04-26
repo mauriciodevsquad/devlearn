@@ -4,19 +4,21 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
 
-            <div class="col-md-8 mb-2">
+            <div class="col-md-9 mb-2">
                 <div class="card">
                     <div class="card-header">
                         <form class="form-inline" action="{{ route('dashboard') }}">
-                            <label class="sr-only" for="response"></label>
-                            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="response" placeholder="Type a name...">
+                            <label class="sr-only" for="term"></label>
+                            <input type="text" name="term" class="form-control mb-2 mr-sm-2 mb-sm-0" id="term" placeholder="Type a name...">
                             <button type="submit" class="btn btn-primary">Search</button>
+                            <button class="btn btn-light ml-2" href="{{ route('dashboard') }}">Reset</button>
                         </form>
+
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
@@ -48,7 +50,7 @@
                                 <div class="col-8">
                                     <h5>
                                         <a href="/videos/{{$video->id}}">
-                                            {{ $video->title }}
+                                            {{ $video->name }}
                                         </a>
 
                                     </h5>
@@ -56,7 +58,7 @@
                                         {{ $video->created_at }}
                                     </p>
                                     <p style="font-size: 14px; color: #6c757d;">
-                                        {{ substr($video->description, 0, 40) }}
+                                        {{ substr($video->description, 0, 60) }}
                                     </p>
 
                                     <div class="row">
@@ -77,8 +79,8 @@
                                                         <div class="modal-body">
                                                             {!! Form::open(['action' => ['VideoController@update', $video->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                                                             <div class="mb-3">
-                                                                {{ Form::label('title', 'Title')}}
-                                                                {{ Form::text('title', $video->title, ['class' => 'form-control', 'placeholder' => 'e.g. Computer Hacks 2018']) }}
+                                                                {{ Form::label('name', 'Title')}}
+                                                                {{ Form::text('name', $video->name, ['class' => 'form-control', 'placeholder' => 'e.g. Computer Hacks 2018']) }}
                                                             </div>
 
                                                             <div class="mb-3">
@@ -144,11 +146,12 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
+
                         {!! Form::open(['action' => ['VideoController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
                         <div class="mb-3">
-                            {{ Form::label('title', 'Title')}}
-                            {{ Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'e.g. Computer Hacks 2018']) }}
+                            {{ Form::label('name', 'Title')}}
+                            {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'e.g. Computer Hacks 2018']) }}
                         </div>
 
                         <div class="mb-3">

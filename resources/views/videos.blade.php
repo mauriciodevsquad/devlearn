@@ -27,7 +27,7 @@
                                 <div class="col-8">
                                     <h5>
                                         <a href="/videos/{{$video->id}}">
-                                            {{ $video->title }}
+                                            {{ $video->name }}
                                         </a>
                                     </h5>
                                     <p style="font-size: 10px; color: #6c757d;">
